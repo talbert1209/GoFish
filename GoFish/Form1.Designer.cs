@@ -78,6 +78,7 @@
             // 
             // buttonAsk
             // 
+            this.buttonAsk.Enabled = false;
             this.buttonAsk.Location = new System.Drawing.Point(492, 678);
             this.buttonAsk.Name = "buttonAsk";
             this.buttonAsk.Size = new System.Drawing.Size(232, 36);
