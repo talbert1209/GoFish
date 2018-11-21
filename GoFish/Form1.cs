@@ -16,5 +16,15 @@ namespace GoFish
         {
             InitializeComponent();
         }
+
+        private void buttonStart_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonAsk_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
