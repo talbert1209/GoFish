@@ -33,10 +33,10 @@
             this.buttonStart = new System.Windows.Forms.Button();
             this.listHand = new System.Windows.Forms.ListBox();
             this.buttonAsk = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textProgress = new System.Windows.Forms.TextBox();
             this.progressLabel = new System.Windows.Forms.Label();
             this.booksLabel = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBooks = new System.Windows.Forms.TextBox();
             this.handLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -87,14 +87,14 @@
             this.buttonAsk.UseVisualStyleBackColor = true;
             this.buttonAsk.Click += new System.EventHandler(this.buttonAsk_Click);
             // 
-            // textBox1
+            // textProgress
             // 
-            this.textBox1.Location = new System.Drawing.Point(26, 113);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(420, 423);
-            this.textBox1.TabIndex = 5;
+            this.textProgress.Location = new System.Drawing.Point(26, 113);
+            this.textProgress.Multiline = true;
+            this.textProgress.Name = "textProgress";
+            this.textProgress.ReadOnly = true;
+            this.textProgress.Size = new System.Drawing.Size(420, 423);
+            this.textProgress.TabIndex = 5;
             // 
             // progressLabel
             // 
@@ -114,14 +114,14 @@
             this.booksLabel.TabIndex = 7;
             this.booksLabel.Text = "Books";
             // 
-            // textBox2
+            // textBooks
             // 
-            this.textBox2.Location = new System.Drawing.Point(26, 563);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(420, 151);
-            this.textBox2.TabIndex = 8;
+            this.textBooks.Location = new System.Drawing.Point(26, 563);
+            this.textBooks.Multiline = true;
+            this.textBooks.Name = "textBooks";
+            this.textBooks.ReadOnly = true;
+            this.textBooks.Size = new System.Drawing.Size(420, 151);
+            this.textBooks.TabIndex = 8;
             // 
             // handLabel
             // 
@@ -138,10 +138,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(757, 743);
             this.Controls.Add(this.handLabel);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBooks);
             this.Controls.Add(this.booksLabel);
             this.Controls.Add(this.progressLabel);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textProgress);
             this.Controls.Add(this.buttonAsk);
             this.Controls.Add(this.listHand);
             this.Controls.Add(this.buttonStart);
@@ -163,10 +163,10 @@
         private System.Windows.Forms.Button buttonStart;
         private System.Windows.Forms.ListBox listHand;
         private System.Windows.Forms.Button buttonAsk;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textProgress;
         private System.Windows.Forms.Label progressLabel;
         private System.Windows.Forms.Label booksLabel;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBooks;
         private System.Windows.Forms.Label handLabel;
     }
 }
