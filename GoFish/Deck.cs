@@ -41,6 +41,11 @@ namespace GoFish
             return cardToDeal;
         }
 
+        public Card Deal()
+        {
+            return Deal(0);
+        }
+
         public void Shuffle()
         {
             var shuffledDeck = new List<Card>();
@@ -68,6 +73,24 @@ namespace GoFish
         public void Sort()
         {
             _cards.Sort(new CardComparer_byValue());
+        }
+
+        public Card Peek(int cardNumber)
+        {
+            return _cards[cardNumber];
+        }
+
+        public bool ContainsValue(Value value)
+        {
+            foreach (var card in _cards)
+            {
+                if (card.Value == value)
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
     }
 }
