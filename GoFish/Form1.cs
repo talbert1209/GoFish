@@ -23,7 +23,7 @@ namespace GoFish
         {
             if (string.IsNullOrEmpty(textName.Text))
             {
-                MessageBox.Show("Please enter your name", "Can't start the game yet!");
+                MessageBox.Show(@"Please enter your name", @"Can't start the game yet!");
             }
             game = new Game(textName.Text, new List<string> {"Joe", "Bob"}, textProgress);
             buttonStart.Enabled = false;

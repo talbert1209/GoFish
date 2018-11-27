@@ -92,5 +92,45 @@ namespace GoFish
 
             return false;
         }
+
+        public Deck PullOutValue(Value value)
+        {
+            Deck deckToReturn = new Deck(new Card[]{});
+            for (int i = _cards.Count - 1; i >= 0; i--)
+            {
+                if (_cards[i].Value == value)
+                {
+                    deckToReturn.Add(Deal(i));
+                }
+            }
+
+            return deckToReturn;
+        }
+
+        public bool HasBook(Value value)
+        {
+            int numberOfCards = 0;
+            foreach (var card in _cards)
+            {
+                if (card.Value == value)
+                {
+                    numberOfCards++;
+                }
+            }
+
+            if (numberOfCards == 4)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public void SortByValue()
+        {
+            _cards.Sort(new CardComparer_byValue());
+        }
     }
 }
