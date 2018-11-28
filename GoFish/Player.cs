@@ -6,11 +6,15 @@ namespace GoFish
 {
     public class Player
     {
-        private Random _random;
-        private Deck _cards;
-        private TextBox _textBoxOnForm;
+        private readonly Random _random;
+        private readonly Deck _cards;
+        private readonly TextBox _textBoxOnForm;
 
         public string Name { get; }
+        public int CardCount
+        {
+            get { return _cards.Count; }
+        }
 
         /// <summary>
         /// Constructor that sets all private fields for each player object.
@@ -18,11 +22,13 @@ namespace GoFish
         /// <param name="name">Name of the player.</param>
         /// <param name="random">This should always be <c>new Random()</c>.</param>
         /// <param name="textBoxOnForm">The textBox you would like to display text.</param>
-        public Player(String name, Random random, TextBox textBoxOnForm)
+        /// <param name="cards">The player's hand</param>
+        public Player(String name, Random random, TextBox textBoxOnForm, Deck cards)
         {
             Name = name;
             _random = random;
             _textBoxOnForm = textBoxOnForm;
+            _cards = cards;
             _textBoxOnForm.Text += $@"{Name} has just joined the game.{Environment.NewLine}";
         }
 
@@ -78,6 +84,70 @@ namespace GoFish
             return cardsIHave;
         }
 
+        /// <summary>
+        /// Overloaded method for asking for a random card.
+        /// </summary>
+        /// <param name="players">A list of players.</param>
+        /// <param name="myIndex">The asking player's index.</param>
+        /// <param name="stock">The stock deck.</param>
+        public void AskForCard(List<Player> players, int myIndex, Deck stock)
+        {
+            if (stock.Count > 0)
+            {
+                if (_cards.Count == 0)
+                {
+                    _cards.Add(stock.Deal());
+                }
 
+                Value randomValue = GetRandomValue();
+                AskForCard(players, myIndex, stock, randomValue);
+            }
+        }
+
+        /// <summary>
+        /// Method for asking other players for a card value.
+        /// </summary>
+        /// <param name="players">A list of players.</param>
+        /// <param name="myIndex">The asking player's index.</param>
+        /// <param name="stock">The stock deck.</param>
+        /// <param name="value">The card value being asked for</param>
+        public void AskForCard(List<Player> players, int myIndex, Deck stock, Value value)
+        {
+            _textBoxOnForm.Text += $@"{Name} asks if anyone has a {value}. {Environment.NewLine}";
+            var totalCardsGiven = 0;
+            for (var i = 0; i < players.Count; i++)
+                if (i != myIndex)
+                {
+                    var player = players[i];
+                    var cardsGiven = player.DoYouHaveAny(value);
+                    totalCardsGiven += cardsGiven.Count;
+                    while (cardsGiven.Count > 0)
+                        _cards.Add(cardsGiven.Deal());
+                }
+
+            if (totalCardsGiven == 0 && stock.Count > 0)
+                _textBoxOnForm.Text += $@"{Name} must draw from the stock.{Environment.NewLine}";
+            _cards.Add(stock.Deal());
+        }
+
+        public void TakeCard(Card card)
+        {
+            _cards.Add(card);
+        }
+
+        public IEnumerable<string> GetCardNames()
+        {
+            return _cards.GetCardNames();
+        }
+
+        public Card Peek(int cardNumber)
+        {
+            return _cards.Peek(cardNumber);
+        }
+
+        public void SortHand()
+        {
+            _cards.SortByValue();
+        }
     }
 }
