@@ -23,12 +23,12 @@ namespace GoFish
         /// <param name="random">This should always be <c>new Random()</c>.</param>
         /// <param name="textBoxOnForm">The textBox you would like to display text.</param>
         /// <param name="cards">The player's hand</param>
-        public Player(String name, Random random, TextBox textBoxOnForm, Deck cards)
+        public Player(String name, Random random, TextBox textBoxOnForm)
         {
             Name = name;
             _random = random;
             _textBoxOnForm = textBoxOnForm;
-            _cards = cards;
+            _cards = new Deck(new Card[]{});
             _textBoxOnForm.Text += $@"{Name} has just joined the game.{Environment.NewLine}";
         }
 
@@ -80,7 +80,7 @@ namespace GoFish
         public Deck DoYouHaveAny(Value value)
         {
             Deck cardsIHave = _cards.PullOutValues(value);
-            _textBoxOnForm.Text = $@"{Name} has {cardsIHave.Count} {Card.Plural(value)}. {Environment.NewLine}";
+            _textBoxOnForm.Text += $@"{Name} has {cardsIHave.Count} {Card.Plural(value)}. {Environment.NewLine}";
             return cardsIHave;
         }
 

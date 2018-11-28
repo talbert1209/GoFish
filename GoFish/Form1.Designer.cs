@@ -93,6 +93,7 @@
             this.textProgress.Multiline = true;
             this.textProgress.Name = "textProgress";
             this.textProgress.ReadOnly = true;
+            this.textProgress.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textProgress.Size = new System.Drawing.Size(420, 423);
             this.textProgress.TabIndex = 5;
             // 
