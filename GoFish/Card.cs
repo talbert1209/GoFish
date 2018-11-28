@@ -19,5 +19,17 @@
         {
             return Name;
         }
+
+        public static string Plural(Value value)
+        {
+            if (value == Value.Six)
+            {
+                return "Sixes";
+            }
+            else
+            {
+                return value.ToString() + "s";
+            }
+        }
     }
 }

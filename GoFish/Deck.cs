@@ -142,7 +142,7 @@ namespace GoFish
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
-        public Deck PullOutValue(Value value)
+        public Deck PullOutValues(Value value)
         {
             Deck deckToReturn = new Deck(new Card[]{});
             for (int i = _cards.Count - 1; i >= 0; i--)
